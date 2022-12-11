@@ -260,28 +260,5 @@ def main():
     #     return jsonify({'htmlresponse': render_template('response.html', employeelist=employeelist)})
     
 
-
-
-@app.route("/",methods=["POST","GET"])
-def fetchrecords():
-    cursor = mydb.connection.cursor(MySQLdb.cursors.DictCursor)
-        # cursor = mydb.cursor(MySQLdb.cursors.DictCursor)
-    if request.method == 'POST':
-        query = request.form['query']
-        #print(query)
-        if query == '':
-            cursor.execute("SELECT * FROM mytable ORDER BY product_id DESC")
-            employeelist = cursor.fetchall()
-            print('all list')
-        else:
-            search_text = request.form['query']
-            print(search_text)
-            cursor.execute("SELECT * FROM mytable WHERE label IN (%s) ORDER BY product_id DESC", [search_text])
-            employeelist = cursor.fetchall()  
-    return jsonify({'htmlresponse': render_template('response.html', employeelist=employeelist)})
-        
-
-
-
 if __name__ == '__main__':
     app.run(host='localhost', port=5000, debug=True)
