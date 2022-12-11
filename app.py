@@ -36,7 +36,7 @@ def main():
         print(mytable)
         return render_template('index.html', mytable=mytable)
 
-    elif request.method == 'POST':
+    else:
         model1 = torch.hub.load("yolo", 'custom', path="best.pt", source='local')
         model2 = joblib.load("stacking-model.pkl")
 
