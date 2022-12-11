@@ -26,7 +26,7 @@ mydb = mysql.connector.connect(
 )
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/templates', methods=['GET', 'POST'])
 def main():
     
     if request.method == 'GET':
