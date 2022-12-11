@@ -240,7 +240,7 @@ def main():
             kulit = "Sensitif"
             masalah = "Bopeng"
 
-        return render_template('url_for('static', filename='templates/predict.html')', data=data, result=result, kulit=kulit, masalah=masalah)
+        return render_template('templates/predict.html', data=data, result=result, kulit=kulit, masalah=masalah)
 
     # def fetchrecords():
     #     cursor = mydb.connection.cursor(MySQLdb.cursors.DictCursor)
